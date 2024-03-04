@@ -27,6 +27,8 @@
 #define POTL analogRead(A5)
 #define POTR analogRead(A4)
 
+// --- SETUP ---
+
 void setup()
 {
 
@@ -42,6 +44,8 @@ void setup()
   pinMode(4, INPUT);
   pinMode(5, INPUT);
 }
+
+// --- LOOP ---
 
 void loop()
 {
