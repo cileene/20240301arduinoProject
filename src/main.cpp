@@ -1,62 +1,54 @@
 #include <Arduino.h>
-#include <Adafruit_NeoPixel.h>
 
-#define PIN 6 // Pin where NeoPixels are connected
+// define the LED outputs
+#define LED1ON digitalWrite(13, HIGH)
+#define LED1OFF digitalWrite(13, LOW)
+#define LED2ON digitalWrite(6, HIGH)
+#define LED2OFF digitalWrite(6, LOW)
+#define LED3ON digitalWrite(7, HIGH)
+#define LED3OFF digitalWrite(7, LOW)
+#define LED4ON digitalWrite(8, HIGH)
+#define LED4OFF digitalWrite(8, LOW)
 
-
-// Declare our NeoPixel strip object:
-Adafruit_NeoPixel strip(16, PIN, NEO_GRB + NEO_KHZ800);
-// Argument 1 = Number of pixels in NeoPixel strip
-// Argument 2 = Arduino pin number (most are valid)
-// Argument 3 = Pixel type flags, add together as needed:
-//   NEO_KHZ800  800 KHz bitstream (most NeoPixel products w/WS2812 LEDs)
-//   NEO_KHZ400  400 KHz (classic 'v1' (not v2) FLORA pixels, WS2811 drivers)
-//   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
-//   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
-//   NEO_RGBW    Pixels are wired for RGBW bitstream (NeoPixel RGBW products)
-
-// NEOPIXEL BEST PRACTICES for most reliable operation:
-// - Add 1000 uF CAPACITOR between NeoPixel strip's + and - connections.
-// - MINIMIZE WIRING LENGTH between microcontroller board and first pixel.
-// - NeoPixel strip's DATA-IN should pass through a 300-500 OHM RESISTOR.
-// - AVOID connecting NeoPixels on a LIVE CIRCUIT. If you must, ALWAYS
-//   connect GROUND (-) first, then +, then data.
-// - When using a 3.3V microcontroller with a 5V-powered NeoPixel strip,
-//   a LOGIC-LEVEL CONVERTER on the data line is STRONGLY RECOMMENDED.
-// (Skipping these may work OK on your workbench but can fail in the field)
-
-// put function declarations here:
-
-
-// analog pin used to connect the potentiometer
-
-// variable to read the value from the analog pin
 
 
 void setup()
 {
-  // put your setup code here, to run once:
+
   Serial.begin(9600);
-  
+  //set led pin as output
+  pinMode(13, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
 }
 
 void loop()
 {
 
-  // if button on 10 is not high print button
-  
-  //delay(10);
-  // print the time since program started
-  // read the input on analog pin 0:
-
-  // print out the value you read:
-
-
-
+  // blink pin d 13
+LED1ON;
+  delay(1000);
+  Serial.println("LED1 ON");
+LED1OFF;
+  delay(1000);
+  Serial.println("LED1 OFF");
+LED2ON;
+  delay(1000);
+  Serial.println("LED2 ON");
+LED2OFF;
+  delay(1000);
+  Serial.println("LED2 OFF");
+LED3ON;
+  delay(1000);
+  Serial.println("LED3 ON");
+LED3OFF;
+  delay(1000);
+  Serial.println("LED3 OFF");
+LED4ON;
+  delay(1000);
+  Serial.println("LED4 ON");
+LED4OFF;
+  delay(1000);
+  Serial.println("LED4 OFF");
 }
-
-// put function definitions here:
-/* int myFunction(int x, int y)
-{
-  return x + y;
-} */
