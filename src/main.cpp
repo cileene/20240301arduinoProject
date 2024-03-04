@@ -1,5 +1,8 @@
 #include <Arduino.h>
 
+// define the console output
+#define CONSOLE Serial.println
+
 // define the LED outputs
 #define LED1ON digitalWrite(13, HIGH)
 #define LED1OFF digitalWrite(13, LOW)
@@ -10,45 +13,71 @@
 #define LED4ON digitalWrite(8, HIGH)
 #define LED4OFF digitalWrite(8, LOW)
 
-
+// define the button inputs if pressed
+#define BTN1 (digitalRead(2) == HIGH)
+#define BTN2 (digitalRead(3) == HIGH)
+#define BTN3 (digitalRead(4) == HIGH)
+#define BTN4 (digitalRead(5) == HIGH)
 
 void setup()
 {
 
   Serial.begin(9600);
-  //set led pin as output
+  // set led pin as output
   pinMode(13, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
   pinMode(8, OUTPUT);
+  // set button pins as input
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
+  pinMode(4, INPUT);
+  pinMode(5, INPUT);
 }
 
 void loop()
 {
 
-  // blink pin d 13
-LED1ON;
-  delay(1000);
-  Serial.println("LED1 ON");
-LED1OFF;
-  delay(1000);
-  Serial.println("LED1 OFF");
-LED2ON;
-  delay(1000);
-  Serial.println("LED2 ON");
-LED2OFF;
-  delay(1000);
-  Serial.println("LED2 OFF");
-LED3ON;
-  delay(1000);
-  Serial.println("LED3 ON");
-LED3OFF;
-  delay(1000);
-  Serial.println("LED3 OFF");
-LED4ON;
-  delay(1000);
-  Serial.println("LED4 ON");
-LED4OFF;
-  delay(1000);
-  Serial.println("LED4 OFF");
+  // check if the button is pressed
+  if BTN1
+  {
+    // turn on the LED
+    LED1ON;
+    CONSOLE("BTN1 = LED1 ON");
+  }
+  else
+  {
+    // turn off the LED
+    LED1OFF;
+  }
+
+  if BTN2
+  {
+    LED2ON;
+    CONSOLE("BTN2 = LED2 ON");
+  }
+  else
+  {
+    LED2OFF;
+  }
+
+  if BTN3
+  {
+    LED3ON;
+    CONSOLE("BTN3 = LED3 ON");
+  }
+  else
+  {
+    LED3OFF;
+  }
+
+  if BTN4
+  {
+    LED4ON;
+    CONSOLE("BTN4 = LED4 ON");
+  }
+  else
+  {
+    LED4OFF;
+  }
 }
