@@ -45,13 +45,13 @@ void setup()
   pinMode(5, INPUT);
 }
 
-// --- LOOP ---
+
 
 void loop()
 {
   // print the potentiometer values
-  // CONSOLE("POTL = " + String(POTL));
-  CONSOLE("POTR = " + String(POTR));
+  CONSOLE(POTL);
+  // CONSOLE("POTR = " + String(POTR));
   // check if the button is pressed
   if BTN1
   {
