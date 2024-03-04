@@ -7,6 +7,8 @@
 #include <Arduino.h>
 #include <VincentConsole.h>
 
+
+
 // -------------
 // --- SETUP ---
 // -------------
@@ -14,6 +16,7 @@
 void setup()
 {
   initialSetup();
+
 }
 
 // ------------
