@@ -1,4 +1,8 @@
+// --- LIBRARIES ---
+
 #include <Arduino.h>
+
+// --- DEFINITIONS ---
 
 // define the console output
 #define CONSOLE Serial.println
@@ -41,8 +45,8 @@ void setup()
 
 void loop()
 {
-// print the potentiometer values
-  //CONSOLE("POTL = " + String(POTL));
+  // print the potentiometer values
+  // CONSOLE("POTL = " + String(POTL));
   CONSOLE("POTR = " + String(POTR));
   // check if the button is pressed
   if BTN1
