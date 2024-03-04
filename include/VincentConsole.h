@@ -140,25 +140,25 @@ void initialSetup()
     pinMode(3, INPUT);
     pinMode(4, INPUT);
     pinMode(5, INPUT);
-    // notes in the melody:
+    // notes in the vincentJingle:
     // V  I  N  C  E  N  T
     // A4 B4 G5 C5 E5 G5 F5
-    int melody[] = {
+    int vincentJingle[] = {
         NOTE_A4, NOTE_B4, NOTE_G5, NOTE_C5, NOTE_E5, NOTE_G5, NOTE_F5
 
     };
 
     // note durations: 4 = quarter note, 8 = eighth note, etc.:
     int noteDurations[] = {
-        4, 8, 8, 4, 4, 4, 4};
-    // iterate over the notes of the melody:
+        8, 8, 4, 8, 8, 4, 2};
+    // iterate over the notes of the vincentJingle:
     for (int thisNote = 0; thisNote < 7; thisNote++)
     {
 
         // to calculate the note duration, take one second divided by the note type.
         // e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
         int noteDuration = 1000 / noteDurations[thisNote];
-        tone(BUZZER_PIN, melody[thisNote], noteDuration);
+        tone(BUZZER_PIN, vincentJingle[thisNote], noteDuration);
 
         // to distinguish the notes, set a minimum time between them.
         // the note's duration + 30% seems to work well:
