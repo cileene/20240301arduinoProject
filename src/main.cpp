@@ -31,7 +31,7 @@
 
 void setup()
 {
-
+  // start the serial communication
   Serial.begin(9600);
   // set led pin as output
   pinMode(13, OUTPUT);
@@ -45,7 +45,7 @@ void setup()
   pinMode(5, INPUT);
 }
 
-
+// --- LOOP ---
 
 void loop()
 {
