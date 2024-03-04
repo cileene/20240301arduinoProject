@@ -19,6 +19,10 @@
 #define BTN3 (digitalRead(4) == HIGH)
 #define BTN4 (digitalRead(5) == HIGH)
 
+// define the potentiometers
+#define POTL analogRead(A5)
+#define POTR analogRead(A4)
+
 void setup()
 {
 
@@ -37,7 +41,9 @@ void setup()
 
 void loop()
 {
-
+// print the potentiometer values
+  //CONSOLE("POTL = " + String(POTL));
+  CONSOLE("POTR = " + String(POTR));
   // check if the button is pressed
   if BTN1
   {
