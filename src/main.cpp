@@ -1,8 +1,14 @@
+// nick lee jerlung 2024
+
+// -----------------
 // --- LIBRARIES ---
+// -----------------
 
 #include <Arduino.h>
 
+// -------------------
 // --- DEFINITIONS ---
+// -------------------
 
 // define the console output
 #define CONSOLE Serial.println
@@ -27,7 +33,9 @@
 #define POTL analogRead(A5)
 #define POTR analogRead(A4)
 
+// -------------
 // --- SETUP ---
+// -------------
 
 void setup()
 {
@@ -45,7 +53,9 @@ void setup()
   pinMode(5, INPUT);
 }
 
+// ------------
 // --- LOOP ---
+// ------------
 
 void loop()
 {
