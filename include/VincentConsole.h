@@ -127,7 +127,6 @@
 
 void initialSetup()
 {
-
     // start the serial communication
     Serial.begin(9600);
     // set led pin as output
@@ -140,21 +139,28 @@ void initialSetup()
     pinMode(3, INPUT);
     pinMode(4, INPUT);
     pinMode(5, INPUT);
+
+    // Check if any button is pressed during startup
+    if (BTN1 || BTN2 || BTN3 || BTN4)
+    {
+        return; // Skip playing the jingle
+    }
+
     // notes in the vincentJingle:
     // V  I  N  C  E  N  T
     // A4 B4 G5 C5 E5 G5 F5
     int vincentJingle[] = {
         NOTE_A4, NOTE_B4, NOTE_G5, NOTE_C5, NOTE_E5, NOTE_G5, NOTE_F5
-
     };
 
     // note durations: 4 = quarter note, 8 = eighth note, etc.:
     int noteDurations[] = {
-        8, 8, 4, 8, 8, 4, 2};
+        8, 8, 4, 8, 8, 4, 2
+    };
+
     // iterate over the notes of the vincentJingle:
     for (int thisNote = 0; thisNote < 7; thisNote++)
     {
-
         // to calculate the note duration, take one second divided by the note type.
         // e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
         int noteDuration = 1000 / noteDurations[thisNote];
