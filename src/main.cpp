@@ -16,7 +16,7 @@
 
 #define PIN 10
 //#define NUMPIXELS 100
-#define DELAYVAL 10 // Time (in milliseconds) to pause between pixels
+#define DELAYVAL 250 // Time (in milliseconds) to pause between pixels
 
 
 Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(5, 5, 2, 2, PIN,
@@ -35,7 +35,8 @@ void setup()
 {
   initialSetup();
   matrix.begin();
-  matrix.setBrightness(50);
+  matrix.setBrightness(255);
+  matrix.setTextColor(matrix.Color(50, 0, 0));
   //matrix.fillScreen(10);
   matrix.show();
 }
@@ -64,15 +65,64 @@ void loop()
     CONSOLE("btn4");
   }
  // run through each of the pixels on the full tiled matrix
-  for(int i=0; i<10; i++) {
-    matrix.drawPixel(i, i, matrix.Color(50, 0, 0));
-    matrix.drawPixel(i, i, matrix.Color(0, 50, 0));
-    matrix.drawPixel(i, i, matrix.Color(0, 0, 50));
-    matrix.drawPixel(i, i, matrix.Color(50, 0, 50));
-    matrix.drawPixel(i, i, matrix.Color(0, 50, 50));
+/*   for(int i=0; i<10; i++) {
+    matrix.drawPixel(i, 0, matrix.Color(50, 0, 0));
+    matrix.drawPixel(i, 1, matrix.Color(0, 50, 0));
+    matrix.drawPixel(i, 2, matrix.Color(0, 0, 50));
+    matrix.drawPixel(i, 3, matrix.Color(50, 0, 50));
+    matrix.drawPixel(i, 4, matrix.Color(0, 50, 50));
+    matrix.drawPixel(i, 5, matrix.Color(50, 0, 0));
+    matrix.drawPixel(i, 6, matrix.Color(0, 50, 0));
+    matrix.drawPixel(i, 7, matrix.Color(0, 0, 50));
+    matrix.drawPixel(i, 8, matrix.Color(50, 0, 50));
+    matrix.drawPixel(i, 9, matrix.Color(0, 50, 50));
     matrix.show();
     delay(DELAYVAL);
-  }
+  } */
+  // write the letter "V" to the full tiled matrix
+  matrix.fillScreen(0);
+  matrix.setCursor(2, 2);
+  matrix.print(F("V"));
+  matrix.show();
+  delay(DELAYVAL);
+  // write the letter "I" to the full tiled matrix
+  matrix.fillScreen(0);
+  matrix.setCursor(2, 2);
+  matrix.print(F("I"));
+  matrix.show();
+  delay(DELAYVAL);
+  // write the letter "N" to the full tiled matrix
+  matrix.fillScreen(0);
+  matrix.setCursor(2, 2);
+  matrix.print(F("N"));
+  matrix.show();
+  delay(DELAYVAL);
+  // write the letter "C" to the full tiled matrix
+  matrix.fillScreen(0);
+  matrix.setCursor(2, 2);
+  matrix.print(F("C"));
+  matrix.show();
+  delay(DELAYVAL);
+  // write the letter "E" to the full tiled matrix
+  matrix.fillScreen(0);
+  matrix.setCursor(2, 2);
+  matrix.print(F("E"));
+  matrix.show();
+  delay(DELAYVAL);
+  // write the letter "N" to the full tiled matrix
+  matrix.fillScreen(0);
+  matrix.setCursor(2, 2);
+  matrix.print(F("N"));
+  matrix.show();
+  delay(DELAYVAL);
+  // write the letter "T" to the full tiled matrix
+  matrix.fillScreen(0);
+  matrix.setCursor(2, 2);
+  matrix.print(F("T"));
+  matrix.show();
+  delay(DELAYVAL);
+
+  
   // animate a face on the full tiled matrix
 
 
