@@ -1,9 +1,5 @@
 // nick lee jerlung 2024
 
-
-
-
-
 // -------------------
 // --- DEFINITIONS ---
 // -------------------
@@ -20,16 +16,6 @@
 #define LED3OFF digitalWrite(7, LOW)
 #define LED4ON digitalWrite(8, HIGH)
 #define LED4OFF digitalWrite(8, LOW)
-
-// define the button inputs if pressed
-#define BTN1 (digitalRead(2) == HIGH)
-#define BTN2 (digitalRead(3) == HIGH)
-#define BTN3 (digitalRead(4) == HIGH)
-#define BTN4 (digitalRead(5) == HIGH)
-
-// define the potentiometers
-#define POTL analogRead(A5)
-#define POTR analogRead(A4)
 
 // define the buzzer pin
 #define BUZZER_PIN 11
@@ -144,14 +130,17 @@ void initialSetup()
     pinMode(4, INPUT);
     pinMode(5, INPUT);
 
-   
+    // define the 4 buttons
+    int btn1 = digitalRead(2);
+    int btn2 = digitalRead(3);
+    int btn3 = digitalRead(4);
+    int btn4 = digitalRead(5);
 
-
-    // Check if any button is pressed during startup
-    if (BTN1 || BTN2 || BTN3 || BTN4)
-    {
-        return; // Skip playing the jingle
-    }
+    // define the 4 leds
+    int led1 = 13;
+    int led2 = 6;
+    int led3 = 7;
+    int led4 = 8;
 
     // notes in the vincentJingle:
     // V  I  N  C  E  N  T

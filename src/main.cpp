@@ -16,7 +16,7 @@
 
 #define PIN 10
 #define NUMPIXELS 100
-#define DELAYVAL 100 // Time (in milliseconds) to pause between pixels
+#define DELAYVAL 1 // Time (in milliseconds) to pause between pixels
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -27,9 +27,9 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 void setup()
 {
   initialSetup();
-/* #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
+#if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
   clock_prescale_set(clock_div_1);
-#endif */
+#endif
   pixels.begin();
   CONSOLE("VINCENT ");
 }
@@ -40,72 +40,60 @@ void setup()
 
 void loop()
 {
-  pixels.clear(); // Set all pixel colors to 'off'
+  // print to the console when the buttons are pressed
+  if (digitalRead(2) == HIGH)
+  {
+    CONSOLE("V");
+  }
+  if (digitalRead(3) == HIGH)
+  {
+    CONSOLE("I");
+  }
+  if (digitalRead(4) == HIGH)
+  {
+    CONSOLE("N");
+  }
+  if (digitalRead(5) == HIGH)
+  {
+    CONSOLE("C");
+  }
+  displayRGB();
+}
 
-  // The first NeoPixel in a strand is #0, second is 1, all the way up
-  // to the count of pixels minus one.
-  for (int i = 0; i < NUMPIXELS; i++)
-  { // For each pixel...
+unsigned long previousMillis = 0; 
+const long interval = DELAYVAL; 
+int state = 0;
+int i = 0;
 
-    // pixels.Color() takes RGB values, from 0,0,0 up to 255,255,255
-    // Here we're using a moderately bright green color:
-    pixels.setPixelColor(i, pixels.Color(3, 0, 0));
+void displayRGB()
+{
+  unsigned long currentMillis = millis();
 
-    pixels.show(); // Send the updated pixel colors to the hardware.
+  if(currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+    //pixels.clear(); // Set all pixel colors to 'off'
 
-    delay(DELAYVAL); // Pause before next pass through loop
-  }
-  // print the potentiometer values
-  // CONSOLE(POTL);
-  // CONSOLE("POTR = " + String(POTR));
-  // check if the button is pressed
-  if BTN1
-  {
-    // turn on the LED
-    LED1ON;
-    tone(BUZZER_PIN, NOTE_A4);
-    CONSOLE("BTN1 = LED1 ON");
-  }
-  else
-  {
-    // turn off the LED
-    LED1OFF;
-    noTone(BUZZER_PIN);
-  }
+    switch(state) {
+      case 0:
+        pixels.setPixelColor(i, pixels.Color(5, 0, 0));
+        break;
+      case 1:
+        pixels.setPixelColor(i, pixels.Color(0, 5, 0));
+        break;
+      case 2:
+        pixels.setPixelColor(i, pixels.Color(0, 0, 5));
+        break;
+    }
 
-  if BTN2
-  {
-    LED2ON;
-    tone(BUZZER_PIN, NOTE_G5);
-    CONSOLE("BTN2 = LED2 ON");
-  }
-  else
-  {
-    LED2OFF;
-    noTone(BUZZER_PIN);
-  }
+    pixels.show();   
+    i++;
 
-  if BTN3
-  {
-    LED3ON;
-    tone(BUZZER_PIN, NOTE_E5);
-    CONSOLE("BTN3 = LED3 ON");
-  }
-  else
-  {
-    LED3OFF;
-    noTone(BUZZER_PIN);
-  }
-
-  if BTN4
-  {
-    LED4ON;
-    tone(BUZZER_PIN, NOTE_F5);
-    CONSOLE("BTN4 = LED4 ON");
-  }
-  else
-  {
-    LED4OFF;
-    noTone(BUZZER_PIN);
+    if(i >= NUMPIXELS) {
+      i = 0;
+      state++;
+      if(state > 2) {
+        state = 0;
+      }
+    }
   }
 }
