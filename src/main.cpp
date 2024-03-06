@@ -16,7 +16,7 @@
 
 #define PIN 10
 //#define NUMPIXELS 100
-#define DELAYVAL 250 // Time (in milliseconds) to pause between pixels
+#define DELAYVAL 400 // Time (in milliseconds) to pause between pixels
 
 
 Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(5, 5, 2, 2, PIN,
@@ -119,6 +119,10 @@ void loop()
   matrix.fillScreen(0);
   matrix.setCursor(2, 2);
   matrix.print(F("T"));
+  matrix.show();
+  delay(DELAYVAL);
+  // clear the screen
+  matrix.fillScreen(0);
   matrix.show();
   delay(DELAYVAL);
 
