@@ -1,5 +1,7 @@
 // nick lee jerlung 2024
 
+
+
 // -------------------
 // --- DEFINITIONS ---
 // -------------------
@@ -119,6 +121,8 @@ void initialSetup()
 {
     // start the serial communication
     Serial.begin(9600);
+    // print to the console
+    CONSOLE("VINCENT ");
     // set led pin as output
     pinMode(13, OUTPUT);
     pinMode(6, OUTPUT);
@@ -129,18 +133,6 @@ void initialSetup()
     pinMode(3, INPUT);
     pinMode(4, INPUT);
     pinMode(5, INPUT);
-
-    // define the 4 buttons
-    int btn1 = digitalRead(2);
-    int btn2 = digitalRead(3);
-    int btn3 = digitalRead(4);
-    int btn4 = digitalRead(5);
-
-    // define the 4 leds
-    int led1 = 13;
-    int led2 = 6;
-    int led3 = 7;
-    int led4 = 8;
 
     // notes in the vincentJingle:
     // V  I  N  C  E  N  T
@@ -153,7 +145,9 @@ void initialSetup()
         8, 8, 4, 8, 8, 4, 2};
 
     // iterate over the notes of the vincentJingle:
-    for (int thisNote = 0; thisNote < 7; thisNote++)
+
+    // UNCOMMENT FOR INTRO MELODY
+    /* for (int thisNote = 0; thisNote < 7; thisNote++)
     {
         // to calculate the note duration, take one second divided by the note type.
         // e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
@@ -166,5 +160,7 @@ void initialSetup()
         delay(pauseBetweenNotes);
         // stop the tone playing:
         noTone(BUZZER_PIN);
-    }
+    } */
+ 
 }
+

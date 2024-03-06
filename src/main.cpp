@@ -15,10 +15,17 @@
 #endif
 
 #define PIN 10
-#define NUMPIXELS 100
-#define DELAYVAL 1 // Time (in milliseconds) to pause between pixels
+//#define NUMPIXELS 100
+#define DELAYVAL 10 // Time (in milliseconds) to pause between pixels
 
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
+Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(5, 5, 2, 2, PIN,
+  NEO_MATRIX_TOP     + NEO_MATRIX_LEFT +
+  NEO_MATRIX_ROWS + NEO_MATRIX_ZIGZAG + NEO_TILE_TOP + NEO_TILE_LEFT + NEO_TILE_ROWS + NEO_TILE_PROGRESSIVE,
+  NEO_GRB            + NEO_KHZ800);
+
+//Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
 
 // -------------
 // --- SETUP ---
@@ -27,11 +34,10 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 void setup()
 {
   initialSetup();
-#if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
-  clock_prescale_set(clock_div_1);
-#endif
-  pixels.begin();
-  CONSOLE("VINCENT ");
+  matrix.begin();
+  matrix.setBrightness(50);
+  //matrix.fillScreen(10);
+  matrix.show();
 }
 
 // ------------
@@ -43,25 +49,37 @@ void loop()
   // print to the console when the buttons are pressed
   if (digitalRead(2) == HIGH)
   {
-    CONSOLE("V");
+    CONSOLE("btn1");
   }
   if (digitalRead(3) == HIGH)
   {
-    CONSOLE("I");
+    CONSOLE("btn2");
   }
   if (digitalRead(4) == HIGH)
   {
-    CONSOLE("N");
+    CONSOLE("btn3");
   }
   if (digitalRead(5) == HIGH)
   {
-    CONSOLE("C");
+    CONSOLE("btn4");
   }
-  displayRGB();
+ // run through each of the pixels on the full tiled matrix
+  for(int i=0; i<10; i++) {
+    matrix.drawPixel(i, i, matrix.Color(50, 0, 0));
+    matrix.drawPixel(i, i, matrix.Color(0, 50, 0));
+    matrix.drawPixel(i, i, matrix.Color(0, 0, 50));
+    matrix.drawPixel(i, i, matrix.Color(50, 0, 50));
+    matrix.drawPixel(i, i, matrix.Color(0, 50, 50));
+    matrix.show();
+    delay(DELAYVAL);
+  }
+  // animate a face on the full tiled matrix
+
+
 }
 
-unsigned long previousMillis = 0; 
-const long interval = DELAYVAL; 
+/* unsigned long previousMillis = 0;
+const long interval = DELAYVAL;
 int state = 0;
 int i = 0;
 
@@ -69,31 +87,35 @@ void displayRGB()
 {
   unsigned long currentMillis = millis();
 
-  if(currentMillis - previousMillis >= interval) {
+  if (currentMillis - previousMillis >= interval)
+  {
     previousMillis = currentMillis;
-    //pixels.clear(); // Set all pixel colors to 'off'
+    // pixels.clear(); // Set all pixel colors to 'off'
 
-    switch(state) {
-      case 0:
-        pixels.setPixelColor(i, pixels.Color(5, 0, 0));
-        break;
-      case 1:
-        pixels.setPixelColor(i, pixels.Color(0, 5, 0));
-        break;
-      case 2:
-        pixels.setPixelColor(i, pixels.Color(0, 0, 5));
-        break;
+    switch (state)
+    {
+    case 0:
+      pixels.setPixelColor(i, pixels.Color(5, 0, 0));
+      break;
+    case 1:
+      pixels.setPixelColor(i, pixels.Color(0, 5, 0));
+      break;
+    case 2:
+      pixels.setPixelColor(i, pixels.Color(0, 0, 5));
+      break;
     }
 
-    pixels.show();   
+    pixels.show();
     i++;
 
-    if(i >= NUMPIXELS) {
+    if (i >= NUMPIXELS)
+    {
       i = 0;
       state++;
-      if(state > 2) {
+      if (state > 2)
+      {
         state = 0;
       }
     }
   }
-}
+} */
