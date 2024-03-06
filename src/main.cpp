@@ -7,6 +7,8 @@
 #include <Arduino.h>
 #include <VincentConsole.h>
 #include <Adafruit_NeoPixel.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_NeoMatrix.h>
 
 #ifdef __AVR__
 #include <avr/power.h>
