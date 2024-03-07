@@ -116,13 +116,22 @@
 // ---------------
 // ---FUNCTIONS---
 // ---------------
+int vincentJingle[] = {
+        NOTE_A4, NOTE_B4, NOTE_G5, NOTE_C5, NOTE_E5, NOTE_G5, NOTE_F5};
+
+           // note durations: 4 = quarter note, 8 = eighth note, etc.:
+    int noteDurations[] = {
+        8, 8, 4, 8, 8, 4, 2};
+        int noteDuration = 1000 / noteDurations[0];
+        int pauseBetweenNotes = noteDuration * 1.30;
+       // int thisNote = 0; thisNote < 7; thisNote++;
 
 void initialSetup()
 {
     // start the serial communication
     Serial.begin(9600);
     // print to the console
-    CONSOLE("VINCENT ");
+    CONSOLE("VINCENT");
     // set led pin as output
     pinMode(13, OUTPUT);
     pinMode(6, OUTPUT);
@@ -134,25 +143,24 @@ void initialSetup()
     pinMode(4, INPUT);
     pinMode(5, INPUT);
 
+    
+
     // notes in the vincentJingle:
     // V  I  N  C  E  N  T
     // A4 B4 G5 C5 E5 G5 F5
-    int vincentJingle[] = {
-        NOTE_A4, NOTE_B4, NOTE_G5, NOTE_C5, NOTE_E5, NOTE_G5, NOTE_F5};
+    
 
-    // note durations: 4 = quarter note, 8 = eighth note, etc.:
-    int noteDurations[] = {
-        8, 8, 4, 8, 8, 4, 2};
+ 
 
     // iterate over the notes of the vincentJingle:
 
-    // UNCOMMENT FOR INTRO MELODY
-    /* for (int thisNote = 0; thisNote < 7; thisNote++)
+/*     // UNCOMMENT FOR INTRO MELODY
+     for (int thisNote = 0; thisNote < 7; thisNote++)
     {
         // to calculate the note duration, take one second divided by the note type.
         // e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
         int noteDuration = 1000 / noteDurations[thisNote];
-        tone(BUZZER_PIN, vincentJingle[thisNote], noteDuration);
+        tone(BUZZER_PIN, vincentJingle[0], noteDuration);
 
         // to distinguish the notes, set a minimum time between them.
         // the note's duration + 30% seems to work well:
@@ -160,7 +168,7 @@ void initialSetup()
         delay(pauseBetweenNotes);
         // stop the tone playing:
         noTone(BUZZER_PIN);
-    } */
+    }  */
  
 }
 
