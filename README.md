@@ -29,24 +29,24 @@ Examples of games you can play with a 100 pixel "screen".
 **THE WORKING PROTOTYPE**
 
 <img src="pictures/prototype1.png" width="300"><img src="pictures/prototype2.png" width="300">
+
 The assembled v1 prototype with two player pong working
 
-- The prototype
-    - Features
-        - Sound
-        - "Screen"
-            - Getting the not quite documented 5*5 LED matrices working as a tiled matrix was !FUN 
-        - Digital buttons
-        - Intro jingle and animation
-        - Two player Pong
-            - It displays the score
-            - Each point raises the gameSpeed
-            - The game resets when a player hits 10 points
-    - Bugs
-        - The potentiometers need to be resoldered and arent adressed in the latest version of the code
-        - Neither are the 4 LEDs used at this point, but they are defined in the code
-        - Weird ball behaviour to be expected when hitting the edge of a paddle
-        - Code needs refactoring (maybe a feature)
+- **Features**
+    - Sound
+    - "Screen"
+        - Getting the not quite documented 5*5 LED matrices working as a tiled matrix was !FUN 
+    - Digital buttons
+    - Intro jingle and animation
+    - Two player Pong
+        - It displays the score
+        - Each point raises the gameSpeed
+        - The game resets when a player hits 10 points
+- **Bugs**
+    - The potentiometers need to be resoldered and arent adressed in the latest version of the code
+    - Neither are the 4 LEDs used at this point, but they are defined in the code
+    - Weird ball behaviour to be expected when hitting the edge of a paddle (maybe a feature?)
+    - Code needs refactoring
 
   
 nick lee jerlung 2024
