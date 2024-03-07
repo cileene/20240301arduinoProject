@@ -28,7 +28,7 @@ Examples of games you can play with a 100 pixel "screen".
 
 **THE WORKING PROTOTYPE**
 
-<img src="pictures/prototype1.png" width="300"><img src="pictures/prototype2.png" width="600">
+<img src="pictures/prototype1.png" width="300"><img src="pictures/prototype2.png" width="500">
 
 The assembled v1 prototype with two player pong working
 
