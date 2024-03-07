@@ -1,30 +1,27 @@
-this is gonna become a working arduino project for the ruc workshop embedded programming spring 2024
-*A simple handheld console that i would let my son Vincent play. Without any distractions but a bunch of abstractions to strengthen his imagination with a emphasis on experimentation as a “black box”.*
+a project for the workshop Prototyping the Future: Embedded Programming @ Roskilde University spring 2024
 
+*A simple handheld console that i would let my son Vincent play. Without any distractions but a bunch of abstractions to strengthen his imagination with a emphasis on experimentation.*
+
+examples of games you can play with a 100 pixel "screen".
 <img src="pictures/gameOfLife.png" width="200"><img src="pictures/pong.png" width="200"><img src="pictures/brickBreak.png" width="200"><img src="pictures/tetris.png" width="200">
 - A programmable console for Vincent
+    - Board
+        - Arduino Uno
     - Outputs
-        - LED matrix instead of a screen
-        - Simple speaker
-        - Two leds (to show who’s turn it is)
+        - 10*10 LED RGB matrix instead of a screen
+        - Simple piezo buzzer as a speaker
+        - 4 status LEDs
     - Inputs
-        - Rotary encoder
-            - Like the PlayDate
-        - d pad + a b buttons
-            - GamBoy style
-        - photocell
-            - Think Boktai
-        - Temp sensor
+        - 2 Rotary encoders
+        - 4 digital buttons
     - Game ideas
         - Tic tac toe
         - Battleship
         - Digital dice rolls
         - Adventure game
-            - think the original zelda
-    - OS
-        - Simple C++
-            - Define the inputs and outputs so it makes sense
-                - Eg. UP, DOWN, LEFT, RIGHT
-            - Define the “screen” so it’s easier to program to then a strip
-            - Define a range of sounds
-nick lee jerlung
+        - Tetris
+        - Pong
+        - Game of Life
+        - Brick Break
+  
+nick lee jerlung 2024
