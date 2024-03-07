@@ -1,10 +1,11 @@
-a project for the workshop Prototyping the Future: Embedded Programming @ Roskilde University spring 2024
+**A project for the workshop Prototyping the Future: Embedded Programming @ Roskilde University spring 2024**
 
-*A simple handheld console that i would let my son Vincent play. Without any distractions but a bunch of abstractions to strengthen his imagination with a emphasis on experimentation.*
+*A simple handheld console that I would let my son Vincent play. Without any distractions but a bunch of abstractions to strengthen his imagination with a emphasis on experimentation.*
 
 <img src="pictures/gameOfLife.png" width="200"><img src="pictures/pong.png" width="200"><img src="pictures/brickBreak.png" width="200"><img src="pictures/tetris.png" width="200">
-examples of games you can play with a 100 pixel "screen".
+Examples of games you can play with a 100 pixel "screen".
 
+**THE CONCEPT**
 - A programmable console for Vincent
     - Board
         - Arduino Uno
