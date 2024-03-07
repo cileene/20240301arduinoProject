@@ -36,7 +36,7 @@ int scoreLeft = 0, scoreRight = 0;
 void setup()
 {
   int noteDuration = 0;
-  //int pauseBetweenNotes = noteDuration * 1.30;
+  // int pauseBetweenNotes = noteDuration * 1.30;
   initialSetup();
   matrix.begin();
   matrix.setBrightness(255);
@@ -45,7 +45,7 @@ void setup()
   matrix.show();
   DELAYVAL = 400;
   // write the letter "V" to the full tiled matrix
-  /* matrix.fillScreen(0);
+  matrix.fillScreen(0);
   matrix.setCursor(2, 2);
   matrix.print(F("V"));
   matrix.show();
@@ -55,6 +55,7 @@ void setup()
   noTone(BUZZER_PIN);
   // delay(DELAYVAL);
   //  write the letter "I" to the full tiled matrix
+  matrix.setTextColor(matrix.Color(0, 50, 0));
   matrix.fillScreen(0);
   matrix.setCursor(2, 2);
   matrix.print(F("I"));
@@ -64,6 +65,7 @@ void setup()
   delay(noteDuration * 1.30);
   noTone(BUZZER_PIN);
   // write the letter "N" to the full tiled matrix
+  matrix.setTextColor(matrix.Color(0, 0, 50));
   matrix.fillScreen(0);
   matrix.setCursor(2, 2);
   matrix.print(F("N"));
@@ -73,6 +75,7 @@ void setup()
   delay(noteDuration * 1.30);
   noTone(BUZZER_PIN);
   // write the letter "C" to the full tiled matrix
+  matrix.setTextColor(matrix.Color(25, 25, 0));
   matrix.fillScreen(0);
   matrix.setCursor(2, 2);
   matrix.print(F("C"));
@@ -82,6 +85,7 @@ void setup()
   delay(noteDuration * 1.30);
   noTone(BUZZER_PIN);
   // write the letter "E" to the full tiled matrix
+  matrix.setTextColor(matrix.Color(0, 25, 25));
   matrix.fillScreen(0);
   matrix.setCursor(2, 2);
   matrix.print(F("E"));
@@ -91,6 +95,7 @@ void setup()
   delay(noteDuration * 1.30);
   noTone(BUZZER_PIN);
   // write the letter "N" to the full tiled matrix
+  matrix.setTextColor(matrix.Color(25, 0, 25));
   matrix.fillScreen(0);
   matrix.setCursor(2, 2);
   matrix.print(F("N"));
@@ -100,6 +105,7 @@ void setup()
   delay(noteDuration * 1.30);
   noTone(BUZZER_PIN);
   // write the letter "T" to the full tiled matrix
+  matrix.setTextColor(matrix.Color(50, 0, 0));
   matrix.fillScreen(0);
   matrix.setCursor(2, 2);
   matrix.print(F("T"));
@@ -111,7 +117,7 @@ void setup()
   // clear the screen
   matrix.fillScreen(0);
   matrix.show();
-  delay(DELAYVAL); */
+  delay(DELAYVAL);
 }
 
 // ------------
@@ -122,15 +128,14 @@ char lastWin;
 
 void loop()
 {
-  //check the value of the potentiometer on analog pin 5
+  // check the value of the potentiometer on analog pin 5
   int potValue = analogRead(A5);
-  //if potvalue is more than 1010, mute all sounds
+  // if potvalue is more than 1010, mute all sounds
   if (potValue > 1010)
   {
     noTone(BUZZER_PIN);
   }
 
-  
   matrix.setTextColor(matrix.Color(0, 0, 10));
 
   matrix.fillScreen(0); // Clear the matrix
@@ -139,11 +144,9 @@ void loop()
   // Draw scores
   matrix.setCursor(0, 3);
   matrix.print(scoreLeft);
-   matrix.setTextColor(matrix.Color(0, 5, 5));
+  matrix.setTextColor(matrix.Color(0, 5, 5));
   matrix.setCursor(4, 0);
   matrix.print(scoreRight);
-  
-  
 
   // Read buttons for paddle movement
   if (digitalRead(3) == HIGH)
@@ -196,14 +199,14 @@ void loop()
   { // Right player scores
     scoreRight++;
     ballX = 2;
-    ballY = 2; // Reset ball
+    ballY = 2;       // Reset ball
     gameSpeed -= 10; // Fix: Assign the result of the subtraction operation to the gameSpeed variable
   }
   else if (ballX > 9)
   { // Left player scores
     scoreLeft++;
     ballX = 4;
-    ballY = 2; // Reset ball
+    ballY = 2;       // Reset ball
     gameSpeed -= 10; // Fix: Assign the result of the subtraction operation to the gameSpeed variable
   }
 
@@ -214,12 +217,86 @@ void loop()
   matrix.drawPixel(9, rightPaddleY, matrix.Color(75, 0, 0));     // Right paddle
   matrix.drawPixel(9, rightPaddleY + 1, matrix.Color(75, 0, 0)); // Right paddle
   matrix.drawPixel(9, rightPaddleY - 1, matrix.Color(75, 0, 0)); // Right paddle
-  matrix.drawPixel(ballX, ballY, matrix.Color(40, 40, 40));       // Ball
+  matrix.drawPixel(ballX, ballY, matrix.Color(40, 40, 40));      // Ball
 
-  //reset the game when one of the players reaches 10 points
+  // reset the game when one of the players reaches 10 points
   if (scoreLeft == 10 || scoreRight == 10)
   {
     // reset the board
+    // write the letter "V" to the full tiled matrix
+    matrix.fillScreen(0);
+    matrix.setCursor(2, 2);
+    matrix.print(F("V"));
+    matrix.show();
+    noteDuration = 125;
+    tone(BUZZER_PIN, vincentJingle[0], noteDuration);
+    delay(noteDuration * 1.30);
+    noTone(BUZZER_PIN);
+    // delay(DELAYVAL);
+    //  write the letter "I" to the full tiled matrix
+    matrix.setTextColor(matrix.Color(0, 50, 0));
+    matrix.fillScreen(0);
+    matrix.setCursor(2, 2);
+    matrix.print(F("I"));
+    matrix.show();
+    noteDuration = 125;
+    tone(BUZZER_PIN, vincentJingle[1], noteDuration);
+    delay(noteDuration * 1.30);
+    noTone(BUZZER_PIN);
+    // write the letter "N" to the full tiled matrix
+    matrix.setTextColor(matrix.Color(0, 0, 50));
+    matrix.fillScreen(0);
+    matrix.setCursor(2, 2);
+    matrix.print(F("N"));
+    matrix.show();
+    noteDuration = 250;
+    tone(BUZZER_PIN, vincentJingle[2], noteDuration);
+    delay(noteDuration * 1.30);
+    noTone(BUZZER_PIN);
+    // write the letter "C" to the full tiled matrix
+    matrix.setTextColor(matrix.Color(25, 25, 0));
+    matrix.fillScreen(0);
+    matrix.setCursor(2, 2);
+    matrix.print(F("C"));
+    matrix.show();
+    noteDuration = 125;
+    tone(BUZZER_PIN, vincentJingle[3], noteDuration);
+    delay(noteDuration * 1.30);
+    noTone(BUZZER_PIN);
+    // write the letter "E" to the full tiled matrix
+    matrix.setTextColor(matrix.Color(0, 25, 25));
+    matrix.fillScreen(0);
+    matrix.setCursor(2, 2);
+    matrix.print(F("E"));
+    matrix.show();
+    noteDuration = 125;
+    tone(BUZZER_PIN, vincentJingle[4], noteDuration);
+    delay(noteDuration * 1.30);
+    noTone(BUZZER_PIN);
+    // write the letter "N" to the full tiled matrix
+    matrix.setTextColor(matrix.Color(25, 0, 25));
+    matrix.fillScreen(0);
+    matrix.setCursor(2, 2);
+    matrix.print(F("N"));
+    matrix.show();
+    noteDuration = 250;
+    tone(BUZZER_PIN, vincentJingle[5], noteDuration);
+    delay(noteDuration * 1.30);
+    noTone(BUZZER_PIN);
+    // write the letter "T" to the full tiled matrix
+    matrix.setTextColor(matrix.Color(50, 0, 0));
+    matrix.fillScreen(0);
+    matrix.setCursor(2, 2);
+    matrix.print(F("T"));
+    matrix.show();
+    noteDuration = 500;
+    tone(BUZZER_PIN, vincentJingle[6], noteDuration);
+    delay(noteDuration * 1.30);
+    noTone(BUZZER_PIN);
+    // clear the screen
+    matrix.fillScreen(0);
+    matrix.show();
+    delay(DELAYVAL);
     leftPaddleY = 4;
     rightPaddleY = 5;
     ballX = 2;
@@ -229,6 +306,6 @@ void loop()
     gameSpeed = 200;
   }
 
-  matrix.show(); // Update the display
-  delay(gameSpeed);    // Adjust for game speed
+  matrix.show();    // Update the display
+  delay(gameSpeed); // Adjust for game speed
 }
