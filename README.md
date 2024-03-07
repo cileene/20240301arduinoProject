@@ -25,5 +25,8 @@ Examples of games you can play with a 100 pixel "screen".
         - Pong
         - Game of Life
         - Brick Break
+
+**THE WORKING PROTOTYPE**
+<img src="pictures/prototype1.png" width="300"><img src="pictures/prototype2.png" width="300">
   
 nick lee jerlung 2024
