@@ -2,9 +2,12 @@ a project for the workshop Prototyping the Future: Embedded Programming @ Roskil
 
 *A simple handheld console that i would let my son Vincent play. Without any distractions but a bunch of abstractions to strengthen his imagination with a emphasis on experimentation.*
 
-examples of games you can play with a 100 pixel "screen".
 
 <img src="pictures/gameOfLife.png" width="200"><img src="pictures/pong.png" width="200"><img src="pictures/brickBreak.png" width="200"><img src="pictures/tetris.png" width="200">
+
+examples of games you can play with a 100 pixel "screen".
+
+
 - A programmable console for Vincent
     - Board
         - Arduino Uno
