@@ -17,14 +17,14 @@ Examples of games you can play with a 100 pixel "screen".
         - 2 Rotary encoders
         - 4 Digital buttons
     - Game ideas
-        - Tic tac toe
-        - Battleship
-        - Digital dice rolls
         - Adventure game
-        - Tetris
-        - Pong
-        - Game of Life
+        - Battleship
         - Brick Break
+        - Digital dice rolls
+        - Game of Life
+        - Pong
+        - Tetris
+        - Tic tac toe
 
 **THE WORKING PROTOTYPE**
 
