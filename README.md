@@ -1,6 +1,6 @@
 this is gonna become a working arduino project for the ruc workshop embedded programming spring 2024
 *A simple handheld console that i would let my son Vincent play. Without any distractions but a bunch of abstractions to strengthen his imagination with a emphasis on experimentation as a “black box”.*
-![Game of Life](pictures/gameOfLife.png)
+<img src="pictures/gameOfLife.png" width="200">
 - A programmable console for Vincent
     - Outputs
         - LED matrix instead of a screen
